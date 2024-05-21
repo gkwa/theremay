@@ -1,5 +1,8 @@
 # theremay
 
-## Learning jinja2 template inheritance
+```bash
 
-https://jinja.palletsprojects.com/en/latest/templates/#template-inheritance
+terraform init .
+terraform plan -out=tfplan -destroy
+terraform plan -out=tfplan
+terraform apply tfplan
