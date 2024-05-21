@@ -1,10 +1,8 @@
 # theremay
 
 ```bash
+packer init .
+packer build ubuntu.pkr.hcl
+incus image ls
 
-terraform init
-terraform plan -out=tfplan -destroy
-terraform plan -out=tfplan
-terraform apply tfplan
-incus ls
-incus shell instance1
+```
