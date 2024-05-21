@@ -1,6 +1,6 @@
 # theremay
 
-Minimal example to create image using packer and provision it with curl and then to use it with terraform.
+Minimal example to create incus image using packer and provision it with curl and then create incus container using the image.
 
 ```bash
 time bash -xe run
