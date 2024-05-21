@@ -23,6 +23,10 @@ resource "incus_instance" "instance1" {
   profiles = ["default"]
 
   provisioner "local-exec" {
+    command = "apt-get -y install curl"
+  }
+
+  provisioner "local-exec" {
     command = "incus config set ${self.name} security.nesting true"
   }
 }
