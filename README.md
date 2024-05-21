@@ -3,7 +3,7 @@
 Minimal example to create image using packer and provision it with curl and then to use it with terraform.
 
 ```bash
-bash -xe run
+time bash -xe run
 echo $?
 ```
 
