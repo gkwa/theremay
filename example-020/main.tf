@@ -13,4 +13,8 @@ resource "incus_instance" "instance1" {
   config = {
     "boot.autostart" = false
   }
+
+   provisioner "local-exec" {
+    command = "incus config set ${self.name} security.nesting true"
+  }
 }
