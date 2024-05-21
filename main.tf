@@ -21,10 +21,6 @@ resource "incus_instance" "instance1" {
     }
   }
   profiles = ["default"]
-
-  provisioner "local-exec" {
-    command = "incus config set ${self.name} security.nesting true"
-  }
 }
 
 resource "incus_network" "network1" {
