@@ -1,0 +1,7 @@
+{% extends 'main.tf/main.tf.j2' %}
+
+{% block next %}
+provisioner "local-exec" {
+    command = "incus config set ${self.name} security.nesting true"
+}
+{% endblock %}
