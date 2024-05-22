@@ -1,5 +1,4 @@
-{% extends 'bash.sh/bash2.sh.j2' %}
-
+{% extends 'bash2.sh.j2' %}
 {% block content %}
 terraform plan -out=tfplan -destroy
 terraform apply tfplan

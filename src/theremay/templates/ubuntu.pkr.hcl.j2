@@ -15,7 +15,6 @@ source "incus" "jammy" {
 
 build {
   sources = ["incus.jammy"]
-
   provisioner "shell" {
     scripts = [
       "provision.sh",

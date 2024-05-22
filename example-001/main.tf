@@ -5,14 +5,11 @@ terraform {
     }
   }
 }
-
 resource "incus_instance" "instance1" {
   image = "example-001"
   name  = "example-001"
-
   config = {
     "boot.autostart" = false
   }
-
 
 }

@@ -1,4 +1,4 @@
-{% extends 'run.sh/run.sh.j2' %}
+{% extends 'run.sh.j2' %}
 {% block test_steps -%}
 incus exec {{ data.container_name }} -- docker run hello-world
 {%- endblock %}

@@ -8,7 +8,7 @@ time bash -xe run.sh
 echo $?
 ```
 
-# Links
+Links
 - https://github.com/lxc/terraform-provider-incus/blob/main/docs/resources/instance.md#basic-example
 - https://github.com/lxc/terraform-provider-incus?tab=readme-ov-file#terraform-provider-incus
 - https://github.com/lxc/terraform-provider-incus/tree/main/docs/resources

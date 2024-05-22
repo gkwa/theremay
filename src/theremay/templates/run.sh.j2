@@ -1,5 +1,6 @@
-#!/usr/bin/env bash
+{% extends 'bash.sh.j2' %}
 
+{% block content %}
 if ! incus image info {{ data.packer_output_image }} &>/dev/null; then
     packer init .
     packer build ubuntu.pkr.hcl
@@ -12,3 +13,5 @@ incus ls {{ data.container_name }}
 {% block test_steps -%}
 incus exec {{ data.container_name }} -- curl --version
 {%- endblock %}
+
+{% endblock %}

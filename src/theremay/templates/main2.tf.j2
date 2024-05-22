@@ -1,0 +1,7 @@
+{% extends 'main.tf.j2' %}
+{% block next -%}
+provisioner "local-exec" {
+# required for docker to run in incus container
+command = "incus config set ${self.name} security.nesting true"
+}
+{%- endblock %}
