@@ -9,7 +9,7 @@ packer {
 
 source "incus" "jammy" {
   image        = "images:ubuntu/jammy"
-  output_image = "{{ data.output_image }}"
+  output_image = "{{ data.packer_output_image }}"
   reuse        = true
 }
 

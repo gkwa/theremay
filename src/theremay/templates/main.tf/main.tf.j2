@@ -7,8 +7,8 @@ terraform {
 }
 
 resource "incus_instance" "instance1" {
-  image = "my-jammy-image"
-  name  = "my-jammy-instance"
+  image = "{{ data.packer_output_image }}"
+  name  = "{{ data.container_name }}"
 
   config = {
     "boot.autostart" = false
