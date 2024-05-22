@@ -9,7 +9,7 @@ packer {
 
 source "incus" "jammy" {
   image        = "images:ubuntu/jammy"
-  output_image = "my-jammy-image"
+  output_image = "example-001"
   reuse        = true
 }
 

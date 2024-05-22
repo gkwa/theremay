@@ -1,33 +1,10 @@
 import argparse
 import logging
 import pathlib
-import subprocess
 
-from . import examples, main2
+from . import examples, main2, format
 
 __project_name__ = "theremay"
-
-
-def format(exdir, verbose=False):
-    terraform_cmd = ["terraform", "fmt", "-recursive", str(exdir)]
-    terraform_result = subprocess.run(terraform_cmd, capture_output=True, text=True)
-    terraform_stdout = terraform_result.stdout
-    terraform_stderr = terraform_result.stderr
-    terraform_exit_code = terraform_result.returncode
-
-    packer_cmd = ["packer", "fmt", "-recursive", str(exdir)]
-    packer_result = subprocess.run(packer_cmd, capture_output=True, text=True)
-    packer_stdout = packer_result.stdout
-    packer_stderr = packer_result.stderr
-    packer_exit_code = packer_result.returncode
-
-    if verbose:
-        logging.debug(f"Terraform stdout: {terraform_stdout}")
-        logging.debug(f"Terraform stderr: {terraform_stderr}")
-        logging.debug(f"Terraform exit code: {terraform_exit_code}")
-        logging.debug(f"Packer stdout: {packer_stdout}")
-        logging.debug(f"Packer stderr: {packer_stderr}")
-        logging.debug(f"Packer exit code: {packer_exit_code}")
 
 
 def main() -> int:
@@ -42,19 +19,21 @@ def main() -> int:
         for entry in group:
             template = entry["template"]
             outfile = entry["outfile"]
+            example_name = f"example-{group_num:03d}"
             data = {
                 "counter": group_num,
-                "example": f"example-{group_num:03d}",
+                "example": example_name,
+                "output_image": example_name,
             }
             rendered = main2.render_template(
                 template,
                 data=data,
             )
-            exdir = pathlib.Path(data["example"])
+            exdir = pathlib.Path(example_name)
             ofile = exdir / outfile
             ofile.parent.mkdir(exist_ok=True, parents=True)
             ofile.write_text(rendered)
 
-    format(".", verbose=args.verbose)
+    format.format(".", verbose=args.verbose)
 
     return 0
