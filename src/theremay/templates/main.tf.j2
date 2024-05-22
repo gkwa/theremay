@@ -1,16 +1,19 @@
 terraform {
-required_providers {
-incus = {
-source = "lxc/incus"
+  required_providers {
+    incus = {
+      source = "lxc/incus"
+    }
+  }
 }
-}
-}
+
 resource "incus_instance" "instance1" {
-image = "{{ data.packer_output_image }}"
-name  = "{{ data.container_name }}"
-config = {
-"boot.autostart" = false
-}
-{% block next -%}
-{%- endblock %}
+  image = "{{ data.packer_output_image }}"
+  name  = "{{ data.container_name }}"
+ 
+  config = {
+    "boot.autostart" = false
+  }
+ 
+  {% block next -%}
+  {%- endblock %}
 }

@@ -6,11 +6,13 @@ packer {
     }
   }
 }
+
 source "incus" "jammy" {
   image        = "images:ubuntu/jammy"
   output_image = "example-002"
   reuse        = true
 }
+
 build {
   sources = ["incus.jammy"]
   provisioner "shell" {
