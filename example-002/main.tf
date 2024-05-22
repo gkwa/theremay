@@ -14,9 +14,8 @@ resource "incus_instance" "instance1" {
     "boot.autostart" = false
   }
 
-
   provisioner "local-exec" {
+    # required for docker to run in incus container
     command = "incus config set ${self.name} security.nesting true"
   }
-
 }

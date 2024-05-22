@@ -1,16 +1,12 @@
 #!/usr/bin/env bash
 
-packer init .
-packer build ubuntu.pkr.hcl
-incus image ls
+if ! incus image info example-001 &>/dev/null; then
+    packer init .
+    packer build ubuntu.pkr.hcl
+fi
+
 terraform init
-terraform plan -out=tfplan -destroy
 terraform plan -out=tfplan
 terraform apply tfplan
-incus ls
-incus exec my-jammy-instance -- curl --version
-
-# cleanup
-terraform plan -out=tfplan -destroy
-terraform apply tfplan
-incus image rm my-jammy-image
+incus ls example-001
+incus exec example-001 -- curl --version

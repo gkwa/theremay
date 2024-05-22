@@ -14,5 +14,6 @@ resource "incus_instance" "instance1" {
     "boot.autostart" = false
   }
 
-  {% block next %}{% endblock %}
+  {% block next -%}
+  {%- endblock %}
 }

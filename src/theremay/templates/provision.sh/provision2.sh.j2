@@ -1,0 +1,7 @@
+{% extends 'provision.sh/provision.sh.j2' %}
+
+{% block content %}
+curl -fsSL https://get.docker.com/ | sh
+systemctl start docker.service
+{% endblock %}
+
