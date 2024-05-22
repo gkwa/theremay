@@ -1,0 +1,17 @@
+#cloud-config
+packages:
+  - curl
+bootcmd:
+  - echo "hello, World from bootcmd.  The time is now $(date -R)!"
+write_files:
+  - content: |
+      #!/usr/bin/env bash
+
+      echo hello2
+
+      apt-get update
+      apt-get -y install jq
+
+    path: /var/lib/cloud/instance/scripts/hello3
+    append: true
+    permissions: '0755'
