@@ -47,4 +47,8 @@ examples = [
             ]
         },
     ],
+    [
+        {"other_stuff": True},
+        {"templates": []},
+    ],
 ]
