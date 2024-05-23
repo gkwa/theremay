@@ -29,6 +29,3 @@ else
 fi
 
 echo "curl has been successfully installed."#!/usr/bin/env bash
-
-
-

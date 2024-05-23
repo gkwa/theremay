@@ -25,6 +25,7 @@ build {
   provisioner "shell" {
     inline = [
       "cloud-init status --wait",
+      "cloud-init clean --logs",
     ]
   }
 }

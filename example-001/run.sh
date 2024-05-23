@@ -11,4 +11,3 @@ terraform plan -out=tfplan
 terraform apply tfplan
 incus ls example-001
 incus exec example-001 -- curl --version
-
